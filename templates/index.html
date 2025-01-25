@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI学习系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>间隔重复学习系统</h1>
+        <form action="/start" method="POST">
+            <input type="text" name="topic" placeholder="输入学习主题" required>
+            <button type="submit">开始学习</button>
+        </form>
+    </div>
+</body>
+</html>

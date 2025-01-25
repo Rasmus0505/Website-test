@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学习模式 - {{ topic }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>正在学习：{{ topic }}</h1>
+        <div class="card">
+            <h2>{{ card.title }}</h2>
+            <div class="knowledge">{{ card.knowledge }}</div>
+            
+            <div class="questions">
+                {% for question in card.questions %}
+                <div class="question">
+                    <p><strong>问题 {{ loop.index }}:</strong> {{ question.q }}</p>
+                    <button class="show-answer" data-index="{{ loop.index0 }}">显示答案</button>
+                    <div class="answer" id="answer-{{ loop.index0 }}" style="display:none;">
+                        {{ question.a }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="rating">
+                <button onclick="submitRating(1)">困难 😣</button>
+                <button onclick="submitRating(3)">一般 😐</button>
+                <button onclick="submitRating(5)">简单 😄</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 显示答案
+        document.querySelectorAll('.show-answer').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = document.getElementById(`answer-${btn.dataset.index}`);
+                answer.style.display = 'block';
+            });
+        });
+
+        // 提交评分
+        function submitRating(score) {
+            fetch('/submit_answer', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    card_id: {{ card.id }},
+                    scores: [score]
+                })
+            }).then(() => window.location.reload());
+        }
+    </script>
+</body>
+</html>

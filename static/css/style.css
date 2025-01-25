@@ -1,0 +1,88 @@
+/* 添加在最顶部测试 */
+body {
+    background-color: red !important; /* 如果变红说明CSS已加载 */
+}
+/* 基础样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 600px;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* 学习卡片样式 */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.question {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-left: 4px solid #4CAF50;
+    background: #f8f9fa;
+}
+
+.show-answer {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.rating button {
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.rating button:nth-child(1) { background: #f44336; }
+.rating button:nth-child(2) { background: #ff9800; }
+.rating button:nth-child(3) { background: #4CAF50; }
+
+.answer {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #e8f5e9;
+    border-radius: 5px;
+}
